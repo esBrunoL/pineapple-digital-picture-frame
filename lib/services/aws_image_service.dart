@@ -213,9 +213,24 @@ class AwsImageService {
       print('❌ Error fetching from real S3: $e');
       print('🔧 If you see "Access Denied", check the FIX_ACCESS_DENIED.md guide!');
       print('📋 Make sure bucket policy and public access are configured correctly');
-      // Fallback to sample images
+      // Fallback to sample images - directly return them without recursive call
       print('🍍 Using sample images while you fix S3 permissions...');
-      return await fetchAllImages();
+      
+      // Convert sample data to FrameImage objects directly (no recursion)
+      final List<FrameImage> fallbackImages = _sampleImages.map((imageData) {
+        return FrameImage(
+          id: imageData['id']!,
+          url: imageData['url']!,
+          title: imageData['title']!,
+          description: imageData['description'],
+          dateAdded: DateTime.now().subtract(
+            Duration(days: int.parse(imageData['id']!)),
+          ),
+          pineappleTheme: imageData['pineappleTheme']!,
+        );
+      }).toList();
+      
+      return fallbackImages;
     }
   }
 

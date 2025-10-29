@@ -42,8 +42,14 @@ class ImageRotationService extends ChangeNotifier {
       
       print('🍍 Initializing Pineapple Digital Picture Frame...');
       
-      // Load images from AWS
-      _images = await _awsService.getFrameImages(count: 12);
+      // Load images from AWS with timeout
+      _images = await _awsService.getFrameImages(count: 14).timeout(
+        const Duration(seconds: 15),
+        onTimeout: () {
+          print('⏰ AWS S3 timeout - using fallback images');
+          return _awsService.fetchAllImages(); // Fallback to sample images
+        },
+      );
       
       if (_images.isEmpty) {
         throw Exception('No images found in AWS S3');
