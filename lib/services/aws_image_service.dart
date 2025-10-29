@@ -213,7 +213,10 @@ class AwsImageService {
       
     } catch (e) {
       print('❌ Error fetching from real S3: $e');
+      print('🔧 If you see "Access Denied", check the FIX_ACCESS_DENIED.md guide!');
+      print('📋 Make sure bucket policy and public access are configured correctly');
       // Fallback to sample images
+      print('🍍 Using sample images while you fix S3 permissions...');
       return await fetchAllImages();
     }
   }
@@ -222,9 +225,23 @@ class AwsImageService {
   Future<bool> validateImageUrl(String url) async {
     try {
       final response = await http.head(Uri.parse(url));
-      return response.statusCode == 200;
+      if (response.statusCode == 200) {
+        print('✅ Image accessible: $url');
+        return true;
+      } else if (response.statusCode == 403) {
+        print('🚨 ACCESS DENIED for: $url');
+        print('🔧 Check FIX_ACCESS_DENIED.md guide to fix S3 permissions!');
+        return false;
+      } else {
+        print('⚠️ HTTP ${response.statusCode} for: $url');
+        return false;
+      }
     } catch (e) {
       print('⚠️ Failed to validate image URL: $url - $e');
+      if (e.toString().contains('AccessDenied') || e.toString().contains('403')) {
+        print('🚨 This looks like an S3 permissions issue!');
+        print('🔧 Follow the FIX_ACCESS_DENIED.md guide to resolve it');
+      }
       return false;
     }
   }
