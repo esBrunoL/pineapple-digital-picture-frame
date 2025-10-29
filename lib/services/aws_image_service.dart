@@ -172,12 +172,25 @@ class AwsImageService {
       
       final List<FrameImage> realImages = [];
       
-      // Example: If you have a known list of image files in S3
+      // Your 16 pineapple photos - update with your actual file names
       final List<String> imageFileNames = [
-        'pineapple1.jpg',
-        'pineapple2.jpg', 
-        'pineapple3.jpg',
-        // Add your actual image file names
+        'pineapple-photo-01.jpg',
+        'pineapple-photo-02.jpg', 
+        'pineapple-photo-03.jpg',
+        'pineapple-photo-04.jpg',
+        'pineapple-photo-05.jpg',
+        'pineapple-photo-06.jpg',
+        'pineapple-photo-07.jpg',
+        'pineapple-photo-08.jpg',
+        'pineapple-photo-09.jpg',
+        'pineapple-photo-10.jpg',
+        'pineapple-photo-11.jpg',
+        'pineapple-photo-12.jpg',
+        'pineapple-photo-13.jpg',
+        'pineapple-photo-14.jpg',
+        'pineapple-photo-15.jpg',
+        'pineapple-photo-16.jpg',
+        // Replace with your actual photo file names when uploading to S3
       ];
       
       for (int i = 0; i < imageFileNames.length; i++) {

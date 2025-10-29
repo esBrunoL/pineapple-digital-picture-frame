@@ -8,14 +8,16 @@
 5. **Block Public Access**: Uncheck "Block all public access" 
 6. Click "Create bucket"
 
-## Step 2: Upload Your Photos
+## Step 2: Upload Your 16 Photos
 1. Open your new bucket
 2. Create folder: `pineapple-frame-images/`
-3. Upload 10+ JPG photos to this folder
-   - **Recommended**: Tropical, beach, food, travel photos
+3. Upload your 16 JPG photos to this folder
+   - **Naming**: `pineapple-photo-01.jpg` through `pineapple-photo-16.jpg` (or your preferred names)
+   - **Recommended**: Tropical, beach, food, travel, pineapple-themed photos
    - **Format**: .jpg or .jpeg only
    - **Size**: 1200x800 or higher resolution
    - **File size**: Under 5MB each
+   - **Total time**: With 16 photos, each rotation cycle will be 2 minutes 40 seconds (16 × 10 seconds)
 
 ## Step 3: Set Bucket Policy
 1. Go to bucket → Permissions → Bucket policy
@@ -53,10 +55,23 @@ In `lib/services/aws_image_service.dart`, update the `_fetchFromRealS3()` method
 
 ```dart
 final List<String> imageFileNames = [
-  'beach-sunset.jpg',
-  'tropical-paradise.jpg', 
-  'pineapple-drink.jpg',
-  // Add all your uploaded photo names here
+  'pineapple-photo-01.jpg',
+  'pineapple-photo-02.jpg',
+  'pineapple-photo-03.jpg',
+  'pineapple-photo-04.jpg',
+  'pineapple-photo-05.jpg',
+  'pineapple-photo-06.jpg',
+  'pineapple-photo-07.jpg',
+  'pineapple-photo-08.jpg',
+  'pineapple-photo-09.jpg',
+  'pineapple-photo-10.jpg',
+  'pineapple-photo-11.jpg',
+  'pineapple-photo-12.jpg',
+  'pineapple-photo-13.jpg',
+  'pineapple-photo-14.jpg',
+  'pineapple-photo-15.jpg',
+  'pineapple-photo-16.jpg',
+  // Update with your actual photo file names
 ];
 ```
 
