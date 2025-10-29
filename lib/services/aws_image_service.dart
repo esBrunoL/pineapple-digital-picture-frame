@@ -161,6 +161,9 @@ class AwsImageService {
   /// Fetch images from real AWS S3 bucket
   Future<List<FrameImage>> _fetchFromRealS3() async {
     print('🍍 Fetching images from real AWS S3 bucket...');
+    print('📍 Bucket: ${AwsConfig.bucketName}');
+    print('🌎 Region: ${AwsConfig.region}');
+    print('📁 Folder: ${AwsConfig.folderPath}');
     
     // Note: For production use, you'll want to use the AWS SDK
     // For now, this is a simplified HTTP-based approach
@@ -195,6 +198,7 @@ class AwsImageService {
         final fileName = imageFileNames[i];
         // Get the real S3 URL using your AWS config
         final url = AwsConfig.getImageUrl(fileName);
+        print('🔗 Generated URL: $url');
         
         realImages.add(FrameImage(
           id: (i + 1).toString(),
@@ -257,6 +261,28 @@ class AwsImageService {
       }
       return false;
     }
+  }
+
+  /// Get sample images directly (no AWS calls)
+  Future<List<FrameImage>> getSampleImages() async {
+    await Future.delayed(const Duration(milliseconds: 500)); // Simulate brief loading
+    
+    final List<FrameImage> sampleImages = _sampleImages.map((imageData) {
+      return FrameImage(
+        id: imageData['id']!,
+        url: imageData['url']!,
+        title: imageData['title']!,
+        description: imageData['description'],
+        dateAdded: DateTime.now().subtract(
+          Duration(days: int.parse(imageData['id']!)),
+        ),
+        pineappleTheme: imageData['pineappleTheme']!,
+      );
+    }).toList();
+    
+    sampleImages.shuffle(_random);
+    print('🍍 Loaded ${sampleImages.length} beautiful pineapple sample images');
+    return sampleImages;
   }
 
   /// Get a random subset of images for the frame rotation
