@@ -172,25 +172,23 @@ class AwsImageService {
       
       final List<FrameImage> realImages = [];
       
-      // Your 16 pineapple photos - update with your actual file names
+      // Your 14 personal photos - matched to your actual file names! 🍍✨
       final List<String> imageFileNames = [
-        'pineapple-photo-01.jpg',
-        'pineapple-photo-02.jpg', 
-        'pineapple-photo-03.jpg',
-        'pineapple-photo-04.jpg',
-        'pineapple-photo-05.jpg',
-        'pineapple-photo-06.jpg',
-        'pineapple-photo-07.jpg',
-        'pineapple-photo-08.jpg',
-        'pineapple-photo-09.jpg',
-        'pineapple-photo-10.jpg',
-        'pineapple-photo-11.jpg',
-        'pineapple-photo-12.jpg',
-        'pineapple-photo-13.jpg',
-        'pineapple-photo-14.jpg',
-        'pineapple-photo-15.jpg',
-        'pineapple-photo-16.jpg',
-        // Replace with your actual photo file names when uploading to S3
+        'photo (1).jpg',
+        'photo (2).jpg', 
+        'photo (3).jpg',
+        'photo (4).jpg',
+        'photo (5).jpg',
+        'photo (6).jpg',
+        'photo (7).jpg',
+        'photo (8).jpg',
+        'photo (9).jpg',
+        'photo (10).JPG',  // Note: JPG uppercase as shown in your folder
+        'photo (11).jpg',
+        'photo (12).jpg',
+        'photo (13).jpg',
+        'photo (14).jpg',
+        // Perfect! 14 photos for a 2m20s slideshow cycle ✅
       ];
       
       for (int i = 0; i < imageFileNames.length; i++) {
