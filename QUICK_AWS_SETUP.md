@@ -2,11 +2,11 @@
 
 ## Step 1: Create S3 Bucket
 1. Go to [AWS S3 Console](https://s3.console.aws.amazon.com/)
-2. Click "Create bucket"
-3. **Bucket name**: `bruno-pineapple-photos-2024` (must be globally unique)
-4. **Region**: `us-east-1` (or your preferred region)
-5. **Block Public Access**: Uncheck "Block all public access" 
-6. Click "Create bucket"
+2. ✅ "Create bucket" - DONE
+3. **✅ Bucket name**: `tropical-repo` (configured!)
+4. **✅ Region**: `us-east-1` (set!)
+5. **✅ Block Public Access**: Unchecked (done!)
+6. ✅ Bucket created successfully!
 
 ## Step 2: Upload Your 16 Photos
 1. Open your new bucket
@@ -31,11 +31,12 @@
       "Effect": "Allow",
       "Principal": "*",
       "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::bruno-pineapple-photos-2024/pineapple-frame-images/*"
+      "Resource": "arn:aws:s3:::tropical-repo/pineapple-frame-images/*"
     }
   ]
 }
 ```
+**✅ This matches your bucket policy perfectly!**
 
 ## Step 4: Configure App
 1. Copy `lib/config/aws_config.example.dart` to `lib/config/aws_config.dart`
@@ -43,10 +44,10 @@
 
 ```dart
 class AwsConfig {
-  static const String bucketName = 'bruno-pineapple-photos-2024';
+  static const String bucketName = 'tropical-repo'; // ✅ CONFIGURED!
   static const String region = 'us-east-1';
   static const String folderPath = 'pineapple-frame-images/';
-  // ... rest stays the same for now
+  // ✅ Already configured in your app!
 }
 ```
 

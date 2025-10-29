@@ -2,24 +2,24 @@
 
 ## IMPORTANT: Update Your AWS Configuration
 
-**You need to update ONE line in the code before your photos will work:**
+**✅ CONFIGURED! Your bucket `tropical-repo` is now connected!**
 
-### Step 1: Edit `lib/config/aws_config.dart`
+### ~~Step 1: Edit `lib/config/aws_config.dart`~~ ✅ DONE
 
-Find this line (around line 6):
+~~Find this line (around line 6):~~
 ```dart
-static const String bucketName = 'bruno-pineapple-photos-2024'; // Your S3 bucket name
+static const String bucketName = 'tropical-repo'; // ✅ CONFIGURED!
 ```
 
-**Replace `bruno-pineapple-photos-2024` with YOUR actual S3 bucket name!**
+**✅ Your S3 bucket name is already set to `tropical-repo`!**
 
 ### Step 2: Create Your S3 Bucket & Upload Photos
 
 1. **Go to AWS S3 Console**: https://s3.console.aws.amazon.com/
-2. **Create bucket**: 
-   - Name: `your-unique-bucket-name-2024` (choose your own!)
-   - Region: `us-east-1` (or your preferred region)
-   - **Uncheck** "Block all public access" ✅
+2. **✅ Bucket Created**: 
+   - Name: `tropical-repo` ✅ DONE
+   - Region: `us-east-1` ✅ DONE
+   - **Unchecked** "Block all public access" ✅ DONE
 3. **Create folder**: `pineapple-frame-images/`
 4. **Upload your 16 photos**: Name them `pineapple-photo-01.jpg` through `pineapple-photo-16.jpg`
 
@@ -41,11 +41,11 @@ In your bucket → Permissions → Bucket policy → Add this JSON:
 }
 ```
 
-**Replace `YOUR-BUCKET-NAME-HERE` with your actual bucket name!**
+**✅ Updated for your bucket `tropical-repo`!**
 
-### Step 4: Test Your Setup
+### Step 4: Ready to Upload Photos! 📸
 
-After updating the bucket name in the code and uploading your photos, your pineapple frame will automatically load YOUR personal photos instead of the sample images!
+Now just upload your 16 photos to the `pineapple-frame-images/` folder in your `tropical-repo` bucket, and your pineapple frame will automatically load YOUR personal photos instead of the sample images!
 
 ---
 

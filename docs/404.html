@@ -88,13 +88,14 @@
             padding-left: 0.5rem;
         }
         
-        .aws-note {
-            background: rgba(255, 215, 0, 0.2);
+        .configured-note {
+            background: linear-gradient(45deg, #90EE90, #98FB98);
             padding: 1rem;
             border-radius: 8px;
             margin-top: 1rem;
-            border: 2px dashed #FFD700;
+            border: 2px solid #32CD32;
             font-size: 0.95rem;
+            color: #006400;
         }
         
         .home-button {
@@ -124,7 +125,7 @@
             <h1>Oops! This pineapple rolled away...</h1>
             <p>The page you're looking for doesn't exist in our tropical paradise.</p>
             <p>🌺 <strong>Pineapple Digital Picture Frame</strong> 🌺</p>
-            <p>A beautiful Flutter app that displays your tropical memories with AWS S3 integration!</p>
+            <p>Connected to AWS S3 bucket: <strong>tropical-repo</strong> 🪣</p>
             
             <div class="demo-info">
                 <h2>🎯 Features:</h2>
@@ -133,13 +134,13 @@
                     <li>🔄 Auto-rotation every 10 seconds (16 photos = 2m40s cycles)</li>
                     <li>⏯️ Pause/resume controls</li>
                     <li>📱 Works on Android, iOS, and Web</li>
-                    <li>☁️ AWS S3 integration for personal photos</li>
+                    <li>☁️ AWS S3 integration: <strong>tropical-repo</strong></li>
                     <li>🌐 Ready for your 16-photo collection!</li>
                 </ul>
                 
-                <div class="aws-note">
-                    <strong>🔧 AWS Setup:</strong> Connect your S3 bucket to display personal photos!
-                    <br>Currently showing sample images until configured.
+                <div class="configured-note">
+                    <strong>✅ AWS Configured:</strong> Your S3 bucket <strong>tropical-repo</strong> is connected!
+                    <br>Upload 16 photos to <code>pineapple-frame-images/</code> folder to see your personal collection.
                 </div>
             </div>
             
