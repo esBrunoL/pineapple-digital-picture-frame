@@ -66,61 +66,24 @@
     <div style="margin-top: 1rem; font-size: 1rem; opacity: 0.8;">This may take up to 60 seconds on first load</div>
   </div>
   <script>
-    // Enhanced loading with better detection
-    let loadingTimeout, progressTimeout;
-    let attempts = 0;
+    // Improved loading handling
+    let loadingTimeout;
     
-    // Multiple ways to detect when Flutter loads
-    const hideLoading = () => {
+    window.addEventListener('flutter-first-frame', function () {
       const loading = document.querySelector('#loading');
       if (loading) {
-        loading.style.transition = 'opacity 0.5s';
-        loading.style.opacity = '0';
-        setTimeout(() => loading.remove(), 500);
+        loading.remove();
       }
       if (loadingTimeout) clearTimeout(loadingTimeout);
-      if (progressTimeout) clearTimeout(progressTimeout);
-    };
+    });
     
-    // Method 1: Official Flutter event
-    window.addEventListener('flutter-first-frame', hideLoading);
-    
-    // Method 2: Check for Flutter elements
-    const checkForApp = () => {
-      attempts++;
-      const flutterView = document.querySelector('flt-scene-host') || 
-                         document.querySelector('flutter-view') ||
-                         document.querySelector('canvas');
-      
-      if (flutterView) {
-        console.log('Flutter app detected!');
-        hideLoading();
-        return;
-      }
-      
-      // Update progress message
+    // Update loading message after 30 seconds
+    loadingTimeout = setTimeout(function() {
       const loading = document.querySelector('#loading .loading-text');
       if (loading) {
-        if (attempts < 10) {
-          loading.innerHTML = `Loading Flutter framework... (${attempts * 10}%)`;
-        } else if (attempts < 20) {
-          loading.innerHTML = `Initializing pineapple components... 🍍`;
-        } else {
-          loading.innerHTML = `Almost ready! Preparing your tropical slideshow... 🌺`;
-        }
+        loading.innerHTML = 'Almost ready... Loading your 14 personal photos! 📸';
       }
-      
-      if (attempts < 60) { // Try for 60 seconds max
-        setTimeout(checkForApp, 1000);
-      } else {
-        // Fallback: remove loading screen anyway
-        console.log('Loading timeout reached, showing app anyway');
-        hideLoading();
-      }
-    };
-    
-    // Start checking after 2 seconds
-    setTimeout(checkForApp, 2000);
+    }, 30000);
   </script>
   <script src="flutter_bootstrap.js" async></script>
 </body>

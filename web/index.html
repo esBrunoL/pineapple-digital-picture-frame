@@ -29,10 +29,62 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>virtual_portrait</title>
+  <title>🍍 Pineapple Digital Picture Frame</title>
   <link rel="manifest" href="manifest.json">
+  <style>
+    .loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #FFD700, #FF6347, #32CD32);
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+    .pineapple {
+      font-size: 4rem;
+      animation: bounce 1.5s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    .loading-text {
+      margin-top: 1rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      max-width: 400px;
+    }
+  </style>
 </head>
 <body>
+  <div id="loading" class="loading">
+    <div class="pineapple">🍍</div>
+    <div class="loading-text">Loading Your Tropical Picture Frame...</div>
+    <div style="margin-top: 1rem; font-size: 1rem; opacity: 0.8;">This may take up to 60 seconds on first load</div>
+  </div>
+  <script>
+    // Improved loading handling
+    let loadingTimeout;
+    
+    window.addEventListener('flutter-first-frame', function () {
+      const loading = document.querySelector('#loading');
+      if (loading) {
+        loading.remove();
+      }
+      if (loadingTimeout) clearTimeout(loadingTimeout);
+    });
+    
+    // Update loading message after 30 seconds
+    loadingTimeout = setTimeout(function() {
+      const loading = document.querySelector('#loading .loading-text');
+      if (loading) {
+        loading.innerHTML = 'Almost ready... Loading your 14 personal photos! 📸';
+      }
+    }, 30000);
+  </script>
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>

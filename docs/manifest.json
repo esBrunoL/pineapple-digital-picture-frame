@@ -1,11 +1,11 @@
 {
-    "name": "🍍 Pineapple Digital Picture Frame",
-    "short_name": "🍍 Pineapple Frame",
+    "name": "virtual_portrait",
+    "short_name": "virtual_portrait",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#FFD700",
-    "theme_color": "#FF6347",
-    "description": "Beautiful tropical digital picture frame with your personal photos.",
+    "background_color": "#0175C2",
+    "theme_color": "#0175C2",
+    "description": "A new Flutter project.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
