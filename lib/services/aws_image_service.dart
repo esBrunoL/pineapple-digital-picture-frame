@@ -2,8 +2,8 @@ import 'dart:math';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../models/frame_image.dart';
-// Import AWS config (create aws_config.dart from aws_config.example.dart)
-// import '../config/aws_config.dart';
+// Import AWS config - now enabled for real S3 integration! 🍍
+import '../config/aws_config.dart';
 
 /// Service class for handling AWS S3 image retrieval
 /// 🍍 Features pineapple-themed images as requested!
@@ -123,13 +123,13 @@ class AwsImageService {
   Future<List<FrameImage>> fetchAllImages() async {
     try {
       // Check if AWS is configured for real S3 usage
-      // Uncomment when you have created aws_config.dart:
-      // if (AwsConfig.isConfigured) {
-      //   return await _fetchFromRealS3();
-      // }
+      if (AwsConfig.isConfigured) {
+        print('🍍 AWS S3 configured! Loading your personal photos...');
+        return await _fetchFromRealS3();
+      }
       
-      // For now, use sample images (simulated AWS S3)
-      print('🍍 Using sample images (AWS S3 simulation mode)');
+      // Fallback to sample images if AWS not configured
+      print('🍍 AWS not configured yet - using sample images (simulation mode)');
       await Future.delayed(const Duration(seconds: 1));
       
       // Convert sample data to FrameImage objects
@@ -195,13 +195,13 @@ class AwsImageService {
       
       for (int i = 0; i < imageFileNames.length; i++) {
         final fileName = imageFileNames[i];
-        // Uncomment when aws_config.dart is created:
-        // final url = AwsConfig.getImageUrl(fileName);
+        // Get the real S3 URL using your AWS config
+        final url = AwsConfig.getImageUrl(fileName);
         
         realImages.add(FrameImage(
           id: (i + 1).toString(),
-          url: 'https://your-bucket.s3.amazonaws.com/pineapple-frame-images/$fileName',
-          title: 'Pineapple Photo ${i + 1}',
+          url: url,
+          title: 'My Pineapple Photo ${i + 1}',
           description: 'Beautiful pineapple image from your personal collection',
           dateAdded: DateTime.now().subtract(Duration(days: i)),
           pineappleTheme: 'personal_collection',

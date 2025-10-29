@@ -1,77 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🍍 Pineapple Digital Picture Frame</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #FFD700, #FFA500, #FF6347);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      color: white;
-    }
-    .container {
-      text-align: center;
-      padding: 40px;
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-    }
-    .pineapple {
-      font-size: 80px;
-      animation: rotate 3s ease-in-out infinite;
-    }
-    @keyframes rotate {
-      0%, 100% { transform: rotate(0deg) scale(1); }
-      50% { transform: rotate(180deg) scale(1.2); }
-    }
-    h1 {
-      font-size: 2.5em;
-      margin: 20px 0;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-    p {
-      font-size: 1.2em;
-      margin: 20px 0;
-      opacity: 0.9;
-    }
-    .button {
-      display: inline-block;
-      padding: 15px 30px;
-      background: #FFD700;
-      color: #000;
-      text-decoration: none;
-      border-radius: 25px;
-      font-weight: bold;
-      margin: 10px;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-    .button:hover {
-      background: #FFA500;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    }
-  </style>
-  <script>
-    // Redirect to index.html for SPA routing
-    window.location.replace('/pineapple-digital-picture-frame/');
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Pineapple Digital Picture Frame</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #FFD700, #FF6347, #32CD32, #FF69B4);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .pineapple-container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            max-width: 600px;
+            margin: 2rem;
+            border: 4px solid #FFD700;
+        }
+        
+        .pineapple {
+            font-size: 6rem;
+            margin-bottom: 1rem;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+        
+        h1 {
+            color: #FF6347;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .demo-info {
+            background: linear-gradient(45deg, #FFF8DC, #F0E68C);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border-left: 5px solid #FFD700;
+        }
+        
+        .demo-info h2 {
+            color: #FF6347;
+            margin-bottom: 1rem;
+        }
+        
+        .demo-info ul {
+            text-align: left;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .demo-info li {
+            margin-bottom: 0.5rem;
+            padding-left: 0.5rem;
+        }
+        
+        .aws-note {
+            background: rgba(255, 215, 0, 0.2);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            border: 2px dashed #FFD700;
+            font-size: 0.95rem;
+        }
+        
+        .home-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #FFD700, #FF6347);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .home-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="pineapple">🍍</div>
-    <h1>Pineapple Digital Picture Frame</h1>
-    <p>Loading your tropical memories...</p>
-    <p>If you're not redirected automatically, click below:</p>
-    <a href="/pineapple-digital-picture-frame/" class="button">Enter Picture Frame</a>
-    <a href="https://github.com/esBrunoL/pineapple-digital-picture-frame" class="button">View Source Code</a>
-  </div>
+    <main>
+        <div class="pineapple-container">
+            <div class="pineapple">🍍</div>
+            <h1>Oops! This pineapple rolled away...</h1>
+            <p>The page you're looking for doesn't exist in our tropical paradise.</p>
+            <p>🌺 <strong>Pineapple Digital Picture Frame</strong> 🌺</p>
+            <p>A beautiful Flutter app that displays your tropical memories with AWS S3 integration!</p>
+            
+            <div class="demo-info">
+                <h2>🎯 Features:</h2>
+                <ul>
+                    <li>🍍 Stunning pineapple-themed border design</li>
+                    <li>🔄 Auto-rotation every 10 seconds (16 photos = 2m40s cycles)</li>
+                    <li>⏯️ Pause/resume controls</li>
+                    <li>📱 Works on Android, iOS, and Web</li>
+                    <li>☁️ AWS S3 integration for personal photos</li>
+                    <li>🌐 Ready for your 16-photo collection!</li>
+                </ul>
+                
+                <div class="aws-note">
+                    <strong>🔧 AWS Setup:</strong> Connect your S3 bucket to display personal photos!
+                    <br>Currently showing sample images until configured.
+                </div>
+            </div>
+            
+            <a href="/pineapple-digital-picture-frame/" class="home-button">
+                🏠 Return to Picture Frame
+            </a>
+        </div>
+    </main>
 </body>
 </html>

@@ -61268,7 +61268,7 @@ A.N7.prototype={
 re(){var s=0,r=A.J(t.Pw),q,p=2,o=[],n,m,l,k,j,i
 var $async$re=A.F(function(a,b){if(a===1){o.push(b)
 s=p}while(true)switch(s){case 0:p=4
-A.cG("\ud83c\udf4d Using sample images (AWS S3 simulation mode)")
+A.cG("\ud83c\udf4d AWS not configured yet - using sample images (simulation mode)")
 s=7
 return A.E(A.BC(B.bX,null,t.z),$async$re)
 case 7:l=t.e9
