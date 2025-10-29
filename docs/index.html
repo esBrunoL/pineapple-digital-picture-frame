@@ -29,10 +29,48 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>virtual_portrait</title>
+  <title>🍍 Pineapple Digital Picture Frame</title>
   <link rel="manifest" href="manifest.json">
+  <style>
+    .loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #FFD700, #FF6347, #32CD32);
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+    .pineapple {
+      font-size: 4rem;
+      animation: bounce 1.5s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    .loading-text {
+      margin-top: 1rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
+  <div id="loading" class="loading">
+    <div class="pineapple">🍍</div>
+    <div class="loading-text">Loading Your Tropical Picture Frame...</div>
+  </div>
+  <script>
+    // Hide loading screen when Flutter app loads
+    window.addEventListener('flutter-first-frame', function () {
+      const loading = document.querySelector('#loading');
+      if (loading) {
+        loading.remove();
+      }
+    });
+  </script>
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
