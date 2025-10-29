@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🍍 Pineapple Digital Picture Frame</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #FFD700, #FFA500, #FF6347);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: white;
+    }
+    .container {
+      text-align: center;
+      padding: 40px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+    }
+    .pineapple {
+      font-size: 80px;
+      animation: rotate 3s ease-in-out infinite;
+    }
+    @keyframes rotate {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.2); }
+    }
+    h1 {
+      font-size: 2.5em;
+      margin: 20px 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    p {
+      font-size: 1.2em;
+      margin: 20px 0;
+      opacity: 0.9;
+    }
+    .button {
+      display: inline-block;
+      padding: 15px 30px;
+      background: #FFD700;
+      color: #000;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      margin: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    .button:hover {
+      background: #FFA500;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+  <script>
+    // Redirect to index.html for SPA routing
+    window.location.replace('/pineapple-digital-picture-frame/');
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="pineapple">🍍</div>
+    <h1>Pineapple Digital Picture Frame</h1>
+    <p>Loading your tropical memories...</p>
+    <p>If you're not redirected automatically, click below:</p>
+    <a href="/pineapple-digital-picture-frame/" class="button">Enter Picture Frame</a>
+    <a href="https://github.com/esBrunoL/pineapple-digital-picture-frame" class="button">View Source Code</a>
+  </div>
+</body>
+</html>
