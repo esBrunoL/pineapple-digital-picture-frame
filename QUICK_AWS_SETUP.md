@@ -4,7 +4,7 @@
 1. Go to [AWS S3 Console](https://s3.console.aws.amazon.com/)
 2. ✅ "Create bucket" - DONE
 3. **✅ Bucket name**: `tropical-repo` (configured!)
-4. **✅ Region**: `us-east-1` (set!)
+4. **✅ Region**: `us-east-2` (corrected!)
 5. **✅ Block Public Access**: Unchecked (done!)
 6. ✅ Bucket created successfully!
 
@@ -45,9 +45,9 @@
 ```dart
 class AwsConfig {
   static const String bucketName = 'tropical-repo'; // ✅ CONFIGURED!
-  static const String region = 'us-east-1';
+  static const String region = 'us-east-2'; // ✅ CORRECTED!
   static const String folderPath = 'pineapple-frame-images/';
-  // ✅ Already configured in your app!
+  // ✅ Region fixed - ready to go!
 }
 ```
 

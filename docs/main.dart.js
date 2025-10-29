@@ -61296,7 +61296,7 @@ p=4
 m=A.c([],t.Od)
 l=A.c(["pineapple-photo-01.jpg","pineapple-photo-02.jpg","pineapple-photo-03.jpg","pineapple-photo-04.jpg","pineapple-photo-05.jpg","pineapple-photo-06.jpg","pineapple-photo-07.jpg","pineapple-photo-08.jpg","pineapple-photo-09.jpg","pineapple-photo-10.jpg","pineapple-photo-11.jpg","pineapple-photo-12.jpg","pineapple-photo-13.jpg","pineapple-photo-14.jpg","pineapple-photo-15.jpg","pineapple-photo-16.jpg"],t.s)
 for(k=0;k<J.bl(l);++k){j=J.mZ(l,k)
-i="https://tropical-repo.s3.us-east-1.amazonaws.com/pineapple-frame-images/"+j
+i="https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/"+j
 J.i3(m,new A.ll(B.d.j(k+1),i,"My Pineapple Photo "+A.o(k+1),"Beautiful pineapple image from your personal collection",new A.e5(Date.now(),0,!1).ut(0-864e8*k),"personal_collection"))}A.cr("\ud83c\udf4d Loaded "+J.bl(m)+" images from your AWS S3 bucket")
 q=m
 s=1

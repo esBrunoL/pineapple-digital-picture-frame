@@ -18,7 +18,7 @@ static const String bucketName = 'tropical-repo'; // ✅ CONFIGURED!
 1. **Go to AWS S3 Console**: https://s3.console.aws.amazon.com/
 2. **✅ Bucket Created**: 
    - Name: `tropical-repo` ✅ DONE
-   - Region: `us-east-1` ✅ DONE
+   - Region: `us-east-2` ✅ CORRECTED!
    - **Unchecked** "Block all public access" ✅ DONE
 3. **Create folder**: `pineapple-frame-images/`
 4. **Upload your 16 photos**: Name them `pineapple-photo-01.jpg` through `pineapple-photo-16.jpg`
