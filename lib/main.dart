@@ -87,7 +87,11 @@ class _MinimalFrameScreenState extends State<MinimalFrameScreen> {
     return Scaffold(
       backgroundColor: const Color(0xFF1A1A1A),
       body: Center(
-        child: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // Pineapple Picture Frame
+            Container(
           width: finalFrameWidth,
           height: finalFrameHeight,
           decoration: BoxDecoration(
@@ -188,34 +192,24 @@ class _MinimalFrameScreenState extends State<MinimalFrameScreen> {
                     ),
                   ),
                 ),
-                // Responsive Title
-                Positioned(
-                  bottom: finalFrameWidth * 0.05, // Responsive bottom position
-                  left: finalFrameWidth * 0.125,  // Responsive left margin
-                  right: finalFrameWidth * 0.125, // Responsive right margin
-                  child: Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: finalFrameWidth * 0.03, // Responsive padding
-                      vertical: finalFrameWidth * 0.015,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.7),
-                      borderRadius: BorderRadius.circular(finalFrameWidth * 0.0375), // Responsive border radius
-                    ),
-                    child: Text(
-                      '📸 Your Personal Photo ${currentImageIndex + 1}/14 - Rotating Every 10s 🍍✨',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: finalFrameWidth * 0.03, // Responsive font size
-                        fontWeight: FontWeight.bold,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
+
               ],
             ),
           ),
+            ),
+            // Spacing between frame and text
+            SizedBox(height: finalFrameWidth * 0.06), // Responsive spacing
+            // Title below the frame
+            Text(
+              'My tropical memories',
+              style: TextStyle(
+                color: Colors.white.withOpacity(0.9),
+                fontSize: finalFrameWidth * 0.04, // Responsive font size
+                fontWeight: FontWeight.w300, // Light weight for elegant look
+                letterSpacing: 1.2, // Slight letter spacing
+              ),
+            ),
+          ],
         ),
       ),
     );
