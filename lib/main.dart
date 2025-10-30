@@ -21,8 +21,51 @@ class MinimalPineappleApp extends StatelessWidget {
   }
 }
 
-class MinimalFrameScreen extends StatelessWidget {
+class MinimalFrameScreen extends StatefulWidget {
   const MinimalFrameScreen({Key? key}) : super(key: key);
+
+  @override
+  State<MinimalFrameScreen> createState() => _MinimalFrameScreenState();
+}
+
+class _MinimalFrameScreenState extends State<MinimalFrameScreen> {
+  int currentImageIndex = 0;
+  
+  // Your 14 personal photos from AWS S3 tropical-repo bucket 🍍✨
+  final List<String> personalPhotos = [
+    'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(1).jpg',
+    'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(2).jpg',
+    'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(3).jpg',
+    'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(4).jpg',
+    'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(5).jpg',
+    'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(6).jpg',
+    'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(7).jpg',
+    'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(8).jpg',
+    'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(9).jpg',
+    'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(10).JPG',
+    'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(11).jpg',
+    'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(12).jpg',
+    'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(13).jpg',
+    'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(14).jpg',
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    // Start rotation timer - change photo every 10 seconds
+    _startPhotoRotation();
+  }
+
+  void _startPhotoRotation() {
+    Future.delayed(const Duration(seconds: 10), () {
+      if (mounted) {
+        setState(() {
+          currentImageIndex = (currentImageIndex + 1) % personalPhotos.length;
+        });
+        _startPhotoRotation(); // Schedule next rotation
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,9 +103,9 @@ class MinimalFrameScreen extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10),
-              image: const DecorationImage(
+              image: DecorationImage(
                 image: NetworkImage(
-                  'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=800&h=600&fit=crop&fm=jpg&q=80',
+                  personalPhotos[currentImageIndex],
                 ),
                 fit: BoxFit.cover,
               ),
@@ -141,9 +184,9 @@ class MinimalFrameScreen extends StatelessWidget {
                       color: Colors.black.withOpacity(0.7),
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    child: const Text(
-                      '🍍 Pineapple Picture Frame - Working! ✅',
-                      style: TextStyle(
+                    child: Text(
+                      '🍍 Your Personal Photo ${currentImageIndex + 1}/14 - Rotating Every 10s ✨',
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
