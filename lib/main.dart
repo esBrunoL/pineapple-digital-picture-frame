@@ -31,7 +31,7 @@ class MinimalFrameScreen extends StatefulWidget {
 class _MinimalFrameScreenState extends State<MinimalFrameScreen> {
   int currentImageIndex = 0;
   
-  // YOUR 14 personal photos from AWS S3 tropical-repo bucket! 🍍✨
+  // My 14 personal photos from AWS S3 tropical-repo bucket! 🍍✨
   // CORS is now configured - your personal photos will display!
   final List<String> personalPhotos = [
     'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(1).jpg',
@@ -70,12 +70,26 @@ class _MinimalFrameScreenState extends State<MinimalFrameScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Get screen dimensions for responsive sizing
+    final screenSize = MediaQuery.of(context).size;
+    final screenWidth = screenSize.width;
+    final screenHeight = screenSize.height;
+    
+    // Use 80% of screen width, with responsive height
+    final frameWidth = screenWidth * 0.8;
+    final frameHeight = frameWidth * 0.7; // 16:11.2 aspect ratio for photo frames
+    
+    // Ensure frame doesn't exceed 80% of screen height
+    final maxFrameHeight = screenHeight * 0.8;
+    final finalFrameWidth = frameHeight > maxFrameHeight ? maxFrameHeight / 0.7 : frameWidth;
+    final finalFrameHeight = frameHeight > maxFrameHeight ? maxFrameHeight : frameHeight;
+
     return Scaffold(
       backgroundColor: const Color(0xFF1A1A1A),
       body: Center(
         child: Container(
-          width: 400,
-          height: 300,
+          width: finalFrameWidth,
+          height: finalFrameHeight,
           decoration: BoxDecoration(
             gradient: const LinearGradient(
               begin: Alignment.topLeft,
@@ -90,20 +104,20 @@ class _MinimalFrameScreenState extends State<MinimalFrameScreen> {
                 Color(0xFF228B22), // Forest Green
               ],
             ),
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(finalFrameWidth * 0.05), // Responsive border radius
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(0.3),
-                blurRadius: 15,
-                offset: const Offset(0, 8),
+                blurRadius: finalFrameWidth * 0.04, // Responsive shadow blur
+                offset: Offset(0, finalFrameWidth * 0.02), // Responsive shadow offset
               ),
             ],
           ),
           child: Container(
-            margin: const EdgeInsets.all(15),
+            margin: EdgeInsets.all(finalFrameWidth * 0.038), // Responsive margin (15px at 400px width)
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(finalFrameWidth * 0.025), // Responsive inner radius
               image: DecorationImage(
                 image: NetworkImage(
                   personalPhotos[currentImageIndex],
@@ -113,83 +127,86 @@ class _MinimalFrameScreenState extends State<MinimalFrameScreen> {
             ),
             child: Stack(
               children: [
-                // Pineapple corners
+                // Responsive Pineapple corners
                 Positioned(
-                  top: 8,
-                  left: 8,
+                  top: finalFrameWidth * 0.02,
+                  left: finalFrameWidth * 0.02,
                   child: Container(
-                    width: 32,
-                    height: 32,
+                    width: finalFrameWidth * 0.08, // Responsive size (32px at 400px width)
+                    height: finalFrameWidth * 0.08,
                     decoration: BoxDecoration(
                       color: Colors.yellow.withOpacity(0.8),
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(finalFrameWidth * 0.04),
                     ),
-                    child: const Center(
-                      child: Text('🍍', style: TextStyle(fontSize: 16)),
+                    child: Center(
+                      child: Text('🍍', style: TextStyle(fontSize: finalFrameWidth * 0.04)), // Responsive font size
                     ),
                   ),
                 ),
                 Positioned(
-                  top: 8,
-                  right: 8,
+                  top: finalFrameWidth * 0.02,
+                  right: finalFrameWidth * 0.02,
                   child: Container(
-                    width: 32,
-                    height: 32,
+                    width: finalFrameWidth * 0.08,
+                    height: finalFrameWidth * 0.08,
                     decoration: BoxDecoration(
                       color: Colors.yellow.withOpacity(0.8),
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(finalFrameWidth * 0.04),
                     ),
-                    child: const Center(
-                      child: Text('🍍', style: TextStyle(fontSize: 16)),
+                    child: Center(
+                      child: Text('🍍', style: TextStyle(fontSize: finalFrameWidth * 0.04)),
                     ),
                   ),
                 ),
                 Positioned(
-                  bottom: 8,
-                  left: 8,
+                  bottom: finalFrameWidth * 0.02,
+                  left: finalFrameWidth * 0.02,
                   child: Container(
-                    width: 32,
-                    height: 32,
+                    width: finalFrameWidth * 0.08,
+                    height: finalFrameWidth * 0.08,
                     decoration: BoxDecoration(
                       color: Colors.yellow.withOpacity(0.8),
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(finalFrameWidth * 0.04),
                     ),
-                    child: const Center(
-                      child: Text('🍍', style: TextStyle(fontSize: 16)),
+                    child: Center(
+                      child: Text('🍍', style: TextStyle(fontSize: finalFrameWidth * 0.04)),
                     ),
                   ),
                 ),
                 Positioned(
-                  bottom: 8,
-                  right: 8,
+                  bottom: finalFrameWidth * 0.02,
+                  right: finalFrameWidth * 0.02,
                   child: Container(
-                    width: 32,
-                    height: 32,
+                    width: finalFrameWidth * 0.08,
+                    height: finalFrameWidth * 0.08,
                     decoration: BoxDecoration(
                       color: Colors.yellow.withOpacity(0.8),
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(finalFrameWidth * 0.04),
                     ),
-                    child: const Center(
-                      child: Text('🍍', style: TextStyle(fontSize: 16)),
+                    child: Center(
+                      child: Text('🍍', style: TextStyle(fontSize: finalFrameWidth * 0.04)),
                     ),
                   ),
                 ),
-                // Title
+                // Responsive Title
                 Positioned(
-                  bottom: 20,
-                  left: 50,
-                  right: 50,
+                  bottom: finalFrameWidth * 0.05, // Responsive bottom position
+                  left: finalFrameWidth * 0.125,  // Responsive left margin
+                  right: finalFrameWidth * 0.125, // Responsive right margin
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: finalFrameWidth * 0.03, // Responsive padding
+                      vertical: finalFrameWidth * 0.015,
+                    ),
                     decoration: BoxDecoration(
                       color: Colors.black.withOpacity(0.7),
-                      borderRadius: BorderRadius.circular(15),
+                      borderRadius: BorderRadius.circular(finalFrameWidth * 0.0375), // Responsive border radius
                     ),
                     child: Text(
                       '📸 Your Personal Photo ${currentImageIndex + 1}/14 - Rotating Every 10s 🍍✨',
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Colors.white,
-                        fontSize: 12,
+                        fontSize: finalFrameWidth * 0.03, // Responsive font size
                         fontWeight: FontWeight.bold,
                       ),
                       textAlign: TextAlign.center,
