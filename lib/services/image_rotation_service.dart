@@ -42,16 +42,9 @@ class ImageRotationService extends ChangeNotifier {
       
       print('🍍 Initializing Pineapple Digital Picture Frame...');
       
-      // Load images - try AWS first, then fallback to samples
-      try {
-        print('🍍 Trying to load from AWS S3...');
-        _images = await _awsService.getFrameImages(count: 14).timeout(
-          const Duration(seconds: 5),
-        );
-      } catch (e) {
-        print('⏰ AWS failed ($e) - using beautiful sample images');
-        _images = await _awsService.getSampleImages(); // Direct sample images
-      }
+      // Load beautiful sample images directly (bypass AWS for now)
+      print('🍍 Loading beautiful pineapple sample images...');
+      _images = await _awsService.getSampleImages();
       
       if (_images.isEmpty) {
         throw Exception('No images found in AWS S3');
