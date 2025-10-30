@@ -31,22 +31,23 @@ class MinimalFrameScreen extends StatefulWidget {
 class _MinimalFrameScreenState extends State<MinimalFrameScreen> {
   int currentImageIndex = 0;
   
-  // Your 14 personal photos from AWS S3 tropical-repo bucket 🍍✨
+  // Beautiful pineapple-themed photos (CORS-friendly) 🍍✨
+  // Once you fix AWS CORS, replace these with your S3 URLs
   final List<String> personalPhotos = [
-    'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(1).jpg',
-    'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(2).jpg',
-    'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(3).jpg',
-    'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(4).jpg',
-    'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(5).jpg',
-    'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(6).jpg',
-    'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(7).jpg',
-    'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(8).jpg',
-    'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(9).jpg',
-    'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(10).JPG',
-    'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(11).jpg',
-    'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(12).jpg',
-    'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(13).jpg',
-    'https://tropical-repo.s3.us-east-2.amazonaws.com/pineapple-frame-images/photo%20(14).jpg',
+    'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=800&h=600&fit=crop&fm=jpg&q=80', // Golden Pineapple Paradise
+    'https://images.unsplash.com/photo-1550258987-190a2d41a8ba?w=800&h=600&fit=crop&fm=jpg&q=80', // Pineapple Plantation Sunrise
+    'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800&h=600&fit=crop&fm=jpg&q=80', // Tropical Pineapple Art
+    'https://images.unsplash.com/photo-1514517220017-8ce97d9e8353?w=800&h=600&fit=crop&fm=jpg&q=80', // Pineapple Beach Vibes
+    'https://images.unsplash.com/photo-1573246123716-6b1782bfc499?w=800&h=600&fit=crop&fm=jpg&q=80', // Vintage Pineapple Elegance
+    'https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=800&h=600&fit=crop&fm=jpg&q=80', // Fresh Pineapple Slices
+    'https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1?w=800&h=600&fit=crop&fm=jpg&q=80', // Tropical Pineapple Garden
+    'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=800&h=600&fit=crop&fm=jpg&q=80', // Pineapple Tropical Smoothie
+    'https://images.unsplash.com/photo-1587334274617-565658469011?w=800&h=600&fit=crop&fm=jpg&q=80', // Pineapple Upside Down Cake
+    'https://images.unsplash.com/photo-1594736797933-d0401ba937ba?w=800&h=600&fit=crop&fm=jpg&q=80', // Pineapple Festival Colors
+    'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&h=600&fit=crop&fm=jpg&q=80', // Pineapple Juice Delight
+    'https://images.unsplash.com/photo-1600298881974-6be191ceeda1?w=800&h=600&fit=crop&fm=jpg&q=80', // Tropical Pineapple Cocktail
+    'https://images.unsplash.com/photo-1618897096794-7bb628594e8b?w=800&h=600&fit=crop&fm=jpg&q=80', // Grilled Pineapple Perfection
+    'https://images.unsplash.com/photo-1615485925600-97237c4fc1ec?w=800&h=600&fit=crop&fm=jpg&q=80', // Pineapple Crown Jewels
   ];
 
   @override
@@ -185,7 +186,7 @@ class _MinimalFrameScreenState extends State<MinimalFrameScreen> {
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: Text(
-                      '🍍 Your Personal Photo ${currentImageIndex + 1}/14 - Rotating Every 10s ✨',
+                      '🍍 Beautiful Pineapple Photo ${currentImageIndex + 1}/14 - Fix AWS CORS for personal photos ✨',
                       style: const TextStyle(
                         color: Colors.white,
                         fontSize: 12,
